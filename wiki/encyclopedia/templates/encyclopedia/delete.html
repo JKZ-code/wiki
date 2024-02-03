@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>{{ message }}</h1>
+        
+    <a href="{% url 'index' %}"><input type="button" value="Go back" class="btn btn-primary"></a>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+
+    <p>{{ content | safe }}</p>
+    <div class="button-container">
+        
+            <a href="javascript:history.go(-1);" class="btn btn-primary" style="margin-right: 10px;">Go back</a>
+       
+            <form action="{% url 'edit' %}" method = "POST">
+                {% csrf_token %}
+                <input type="hidden" name="entry_title" value="{{ title }}">
+                <input type="submit" value="Edit" class="btn btn-primary">
+            </form>
+       
+            <form action="{% url 'delete' %}" method = "POST">
+                {% csrf_token %}
+                <input type="hidden" name="entry_title" value="{{ title }}">
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+
+    </div>
+{% endblock %}
